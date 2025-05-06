@@ -76,17 +76,17 @@ func inorderTraversalIterative(root *TreeNode) []int {
 }
 
 // 测试辅助函数：比较两个切片是否相等
-func compareSlices(a, b []int) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for i := range a {
-		if a[i] != b[i] {
-			return false
-		}
-	}
-	return true
-}
+// func compareSlices(a, b []int) bool {
+// 	if len(a) != len(b) {
+// 		return false
+// 	}
+// 	for i := range a {
+// 		if a[i] != b[i] {
+// 			return false
+// 		}
+// 	}
+// 	return true
+// }
 
 func TestInorderTraversal(t *testing.T) {
 	tests := []struct {
