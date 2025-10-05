@@ -26,17 +26,24 @@ func compareList(l1, l2 *ListNode) bool {
 	return l1 == nil && l2 == nil
 }
 
+
+
+// 辅助函数：复制链表
 func copyList(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
 	}
+
 	newHead := &ListNode{Val: head.Val}
-	curr, currNew := head.Next, newHead
-	for curr != nil {
-		currNew.Next = &ListNode{Val: curr.Val}
-		curr = curr.Next
-		currNew = currNew.Next
+	current := newHead
+	original := head.Next
+
+	for original != nil {
+		current.Next = &ListNode{Val: original.Val}
+		current = current.Next
+		original = original.Next
 	}
+
 	return newHead
 }
 // createList 根据数组创建链表

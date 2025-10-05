@@ -24,10 +24,10 @@ import (
 // 时间复杂度：O(m+n)，空间复杂度：O(1)
 
 // ListNode 定义链表节点
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+// type ListNode struct {
+// 	Val  int
+// 	Next *ListNode
+// }
 
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	if headA == nil || headB == nil {
