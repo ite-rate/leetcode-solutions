@@ -13,6 +13,7 @@ func compareSlices(a, b []int) bool {
 }
 
 
+
 // compareList 比较两个链表是否相等
 func compareList(l1, l2 *ListNode) bool {
 	for l1 != nil && l2 != nil {

@@ -1,10 +1,10 @@
 /*
  * LeetCode #25: 题目25
  * 难度: 未知
- * 
+ *
  * 题目描述:
  * 由大模型直接生成
- * 
+ *
  * 代码骨架完整度: 10%
  */
 
@@ -54,26 +54,26 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 */
 func reverseKGroup2(head *ListNode, k int) *ListNode {
 	len := 0
-	for cur := head; cur!=nil; cur = cur.Next {
+	for cur := head; cur != nil; cur = cur.Next {
 		len++
 	}
 
 	dummy := &ListNode{}
 	dummy.Next = head
 	p0 := dummy
-	pre,cur := p0,p0.Next
+	pre, cur := p0, p0.Next
 
-	for n:=len; n>=k;n-=k {
-		for i:=0;i<k;i++{
+	for n := len; n >= k; n -= k {
+		for i := 0; i < k; i++ {
 			next := cur.Next
 			cur.Next = pre
 			pre = cur
 			cur = next
 		}
-		next := p0.Next
+		currentGroupOriginalHead := p0.Next
 		p0.Next.Next = cur
 		p0.Next = pre
-		p0 = next
+		p0 = currentGroupOriginalHead
 	}
 	return dummy.Next
 }
