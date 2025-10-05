@@ -56,15 +56,15 @@ func middleNodeFastSlow(head *ListNode) *ListNode {
 }
 
 // 测试辅助函数：创建链表
-func createLinkedList(nums []int) *ListNode {
-	dummy := &ListNode{}
-	current := dummy
-	for _, num := range nums {
-		current.Next = &ListNode{Val: num}
-		current = current.Next
-	}
-	return dummy.Next
-}
+// func createLinkedList(nums []int) *ListNode {
+// 	dummy := &ListNode{}
+// 	current := dummy
+// 	for _, num := range nums {
+// 		current.Next = &ListNode{Val: num}
+// 		current = current.Next
+// 	}
+// 	return dummy.Next
+// }
 
 // 测试辅助函数：链表转切片
 func linkedListToSlice(head *ListNode) []int {

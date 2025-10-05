@@ -12,8 +12,6 @@ func compareSlices(a, b []int) bool {
 	return true
 }
 
-
-
 // compareList 比较两个链表是否相等
 func compareList(l1, l2 *ListNode) bool {
 	for l1 != nil && l2 != nil {
@@ -25,8 +23,6 @@ func compareList(l1, l2 *ListNode) bool {
 	}
 	return l1 == nil && l2 == nil
 }
-
-
 
 // 辅助函数：复制链表
 func copyList(head *ListNode) *ListNode {
@@ -46,6 +42,7 @@ func copyList(head *ListNode) *ListNode {
 
 	return newHead
 }
+
 // createList 根据数组创建链表
 func createList(nums []int) *ListNode {
 	dummy := &ListNode{}
@@ -65,4 +62,18 @@ func listToSlice(head *ListNode) []int {
 		head = head.Next
 	}
 	return res
+}
+
+// 创建链表辅助函数
+func createLinkedList(nums []int) *ListNode {
+	if len(nums) == 0 {
+		return nil
+	}
+	head := &ListNode{Val: nums[0]}
+	current := head
+	for i := 1; i < len(nums); i++ {
+		current.Next = &ListNode{Val: nums[i]}
+		current = current.Next
+	}
+	return head
 }
