@@ -41,31 +41,29 @@ func removeNthFromEnd1(head *ListNode, n int) *ListNode {
 }
 
 // 解法2：计算链表长度法
-// 算法思路：先遍历链表计算长度L，然后找到第L-n个节点（即倒数第n+1个节点），删除其下一个节点
-// 时间复杂度：O(L)，其中L是链表的长度
-// 空间复杂度：O(1)
+// removeNthFromEnd2 删除链表的倒数第 n 个节点并返回新头节点。
+// 思路：1) 先遍历求长度 L；2) 再走 L−n 步找到待删节点的前驱；3) 删除后返回。
 func removeNthFromEnd2(head *ListNode, n int) *ListNode {
-	// TODO: 创建哑节点，简化头节点删除的特殊情况处理
-	dummy := &ListNode{}
-	dummy.Next = head
-	len := 0
-	cur := head
-	for cur != nil {
-		len++
-		cur = cur.Next
+	// 1. 创建哑节点，统一处理「删除头节点」这种特殊情况
+	dummy := &ListNode{Next: head}
+
+	// 2. 第一遍遍历：统计链表长度 length
+	length := 0
+	for cur := head; cur != nil; cur = cur.Next {
+		length++
 	}
-	//step2
-	cur = dummy
-	// cur指向倒数第n+1个节点,就是要删除的节点的前一个节点
-	for i := 0; i < len-n; i++ {
-		cur = cur.Next
+
+	// 3. 第二遍遍历：让 prev 停在「倒数第 n+1 个节点」（即待删节点的前驱）
+	prev := dummy
+	for i := 0; i < length-n; i++ {
+		prev = prev.Next
 	}
-	cur.Next = cur.Next.Next
+
+	// 4. 删除 prev 的后继节点（倒数第 n 个节点）
+	prev.Next = prev.Next.Next
+
+	// 5. 返回新头节点
 	return dummy.Next
-	// TODO: 第一次遍历计算链表长度L
-	// TODO: 找到第L-n个节点（倒数第n+1个节点）
-	// TODO: 删除该节点的下一个节点（即倒数第n个节点）
-	// TODO: 返回哑节点的下一个节点作为新头节点
 }
 
 // 辅助函数：创建链表
