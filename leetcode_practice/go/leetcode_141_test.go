@@ -34,10 +34,10 @@ func hasCycle1(head *ListNode) bool {
 	mp := make(map[*ListNode]bool)
 	// 2. 遍历链表，检查当前节点是否已在map中
 	for head != nil {
+		// 3. 如果节点已存在，返回true
 		if mp[head] {
 			return true
 		}
-		// 3. 如果节点已存在，返回true
 		mp[head] = true
 		head = head.Next
 	}
