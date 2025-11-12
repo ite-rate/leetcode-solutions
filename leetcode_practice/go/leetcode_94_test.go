@@ -46,8 +46,7 @@ func inorderTraversalRecursive(root *TreeNode) []int {
 		res = append(res,node.Val)
 		dfs(node.Right)
 	}
-	dfs(root)
-	return res
+	
 }
 
 // 解法二：迭代法（显式栈）

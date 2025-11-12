@@ -38,7 +38,7 @@ func reverseList(head *ListNode) *ListNode {
 	// - 在循环中保存next节点，然后反转curr.Next指向prev
 	// - 移动prev和curr指针向前
 	// - 当curr为nil时，prev就是新的头节点
-	var prev *ListNode = nil
+	var prev *ListNode
 	curr := head
 	for curr != nil {
 		// 保存后续节点
